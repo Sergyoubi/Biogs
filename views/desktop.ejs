@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <div id="wrapper" class="box-border m-0 p-0">
+
+        <div id="header" class="w-full h-14 flex justify-between">
+
+            <div id="logo" class="w-1/4 h-full flex justify-start items-center">
+                <a href="/"> <p class="text-white p-1 bg-blue-900 rounded-lg ml-16 text-3xl font-bold">Biogs</p> </a>
+            </div>
+
+            <div id="menu-wrapper" class="w-96 h-full flex justify-around items-center">
+                <a href="/signup"> <p class="text-lg font-medium text-blue-500 rounded-lg hover:text-gray-600 hover:bg-gray-100 hover:px-3" >Join us</p> </a>
+                <a href="/login"> <p class="text-lg font-medium text-gray-600 px-3 bg-gray-100 rounded-lg hover:text-blue-500 hover:bg-gray-50" >Sign in</p> </a>
+            </div> 
+ 
+        </div>
+
+        <div id="main">
+                
+            <div class="w-11/12 h-60 bg-blue-50 relative mt-6 mx-auto flex justify-center items-center ">
+                <p class="text-7xl text-gray-600 font-thin text-center mt-3">Create your free Biography Page and join a +1 million Professionnal Communities.</p> 
+            </div>
+
+            <div id="section-1" class="w-11/12 h-screen mx-auto bg-cover bg-center grid grid-cols-2" style="background-image: url(images/backman.jpg)">
+
+                <div id="leftside" class="flex justify-center items-center">
+                    <div class="w-10/12 h-11/12">
+                        <form action="/login" method="POST" class="">
+                            <div class="w-full flex items-start justify-start">
+                                <input type="email" name="email" placeholder="Email" required class="w-full h-14 border-2 border-white rounded-3xl my-6 focus:outline-none text-center">
+                            </div>
+    
+                            <div class="w-full flex items-center justify-start">
+                                <input type="password" name="password" placeholder="Password" required class="w-full h-14 border-2 border-white rounded-3xl my-6 focus:outline-none text-center">
+                            </div>
+    
+                            <div class="w-full flex items-center justify-start">
+                                <input type="submit" value="Sign in" class="w-full h-12 border-2 border-blue-600 bg-blue-600 rounded-3xl my-6 text-white text-xl font-bold focus:outline-none hover:bg-blue-700 hover:border-blue-700">                      
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="section-2" class="w-11/12 h-screen mx-auto relative grid grid-rows-3">
+
+                <div id="topSection" class="w-full h-full bg-yellow-400 grid grid-cols-2">
+
+                    <div id="about">
+                        <p class="text-5xl text-white font-extrabold relative ml-10 mt-4">About:</p> <br>
+                        <p class="text-lg text-white font-lg ml-10">Biogs is a platform to valorize your skills and experiences. Build your resume page and find people you need</p>                       
+                    </div>
+                    
+                    <div class="grid grid-rows-3">
+                        <div class="flex justify-center gap-10 items-end"> 
+                            <p class="text-white text-2xl font-bold">Marketing</p>
+                            <p class="text-white text-2xl font-bold">Business</p>
+                        </div>
+
+                        <div class="flex justify-evenly items-end">
+                            <p class="text-white text-2xl font-bold">Human Resources</p>
+                            <p class="text-white text-2xl font-bold">Real Estate</p>
+                            <p class="text-white text-2xl font-bold">Services</p>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div id="bottomSection" class="w-full h-screen bg-white bg-cover bg-center" style="background-image: url(images/colleague.jpg)">
+                </div>
+
+                <div class="w-full h-1/4 relative top-10 mt-96  flex justify-start items-center">
+                    <a href="/"><p> <span class="ml-14 font-bold text-gray-600 text-lg">Biogs</span> <span class="font-xs text-sm text-gray-400">&copy Copyright 2021</span></p></a>
+                </div>
+            
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

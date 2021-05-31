@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+
+    <div id="wrapper" class="box-border m-0 p-0 bg-yellow-400">
+
+        <div id="header" class="w-full h-14 flex justify-between bg-blue-900">
+            <div id="logo" class="w-1/4 h-full flex justify-center items-center">
+                <a href="/dashboard"> <p class="text-blue-900 bg-white p-1 rounded-lg text-3xl font-bold">Biogs</p> </a>
+            </div>
+
+            <div id="menu-wrapper" class="w-48 h-full flex justify-center items-center">
+                <div id="littleProfile" class="w-12 h-12 rounded-full bg-white border"> 
+
+                </div>
+            </div>
+
+        </div>
+
+        <div id="main" class="w-11/12 h-screen relative mx-auto flex justify-center items-center">
+
+            <div id="formContainer" class="w-3/4 h-5/6 relative flex justify-center rounded-lg bg-white hover:shadow-xl">
+            
+                <div class="w-11/12 h-full relative mx-auto mt-5">
+                    <div class="w-full h-10 flex justify-center items-center">
+                        <p class="text-4xl font-extralight text-center">Education:</p>
+                    </div>
+
+                    <div class="w-full flex justify-center items-center absolute mt-1">                   
+                        <% if (typeof errorMessage != 'undefined') { %>               
+                            
+                            <% errorMessage.forEach((error) => { %>
+                                <p class="text-sm font-extralight text-center"> <%= error.msg%>  </p>
+                            <% }) %>
+                            
+                        <% } %>
+                    </div>
+
+                    <form action="/education" method="POST">    
+
+                        <div id="educationWrapper" class=" grid grid-rows-5 mt-5">
+
+                            <div class="mt-1">
+                                <label for="primary-school" class="text-base text-gray-500 ml-5">Primary School</label> 
+                                <input type="text" name="primaryschool" required class="w-11/12 h-8 mt-3 ml-5 border border-gray-400 rounded-lg focus:outline-none">
+                            </div>
+
+                            <div class="mt-2">
+                                <label for="middle-school" class="text-base text-gray-500 ml-5">Middle School (High School)</label> 
+                                <input type="text" name="middleschool" required class="w-11/12 h-8 mt-3 ml-5 border border-gray-400 rounded-lg focus:outline-none">
+                            </div>
+
+                            <div class="mt-1 flex justify-between items-center">
+                                <label for="university" class="text-base text-gray-500 ml-5 mt-5">University(College)</label> 
+                                <input type="text" name="university" class="w-6/12 h-8 mt-3 ml-7 border border-gray-400 rounded-lg focus:outline-none">
+                                <p class="text-gray-600 mt-3 mr-10">(Not required)</p>
+                            </div>
+
+                            <div class="mt-1 flex justify-between items-center">
+                                <label for="department" class="text-base text-gray-500 ml-5 mt-5">University Department</label> 
+                                <input type="text" name="department" class="w-6/12 h-8 mt-3  border border-gray-400 rounded-lg focus:outline-none">
+                                <p class="text-gray-600 mt-3 mr-10">(Not required)</p>
+                            </div>
+                            
+                            <div class="mt-1 flex justify-between items-center">
+                                <label for="degree" class="text-base text-gray-500 ml-5 mt-5">Degree</label> 
+                                <input type="text" name="degree" class="w-6/12 h-8 mt-3 ml-28 border border-gray-400 rounded-lg focus:outline-none">
+                                <p class="text-gray-600 mt-3 mr-10">(Not required)</p>
+                            </div>
+
+                        </div>
+                        
+                        <div class="mt-10">                           
+                            <input type="submit" value="Save"  class="w-9/12 h-8  ml-28 bg-gray-600 rounded-2xl text-white hover:bg-blue-900">
+                        </div>
+                
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+<script src="show-hide.js"> </script>
+</html>

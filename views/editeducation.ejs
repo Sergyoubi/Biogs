@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Education</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+    <div id="wrapper" class="box-border m-0 p-0 bg-yellow-400">
+
+        <div id="header" class="w-full h-14 flex justify-between bg-blue-900">
+            <div id="logo" class="w-1/4 h-full flex justify-center items-center">
+                <a href="/dashboard/<%= userId %>"> <p class="text-blue-900 bg-white p-1 rounded-lg text-3xl font-bold">Biogs</p> </a> 
+            </div>
+
+            <div id="menu-wrapper" class="w-48 h-full flex justify-center items-center">
+                <div id="littleProfile" class="w-12 h-12 rounded-full bg-blue-900 border border-blue-900 cursor-pointer">
+                    <img class="w-full h-full" src="/profiles/<%= model.profilepic %>">
+                </div>
+            </div>
+
+            <div id="profileMenu" class="w-60 h-60 shadow-lg absolute cursor-pointer left-3/4 mt-14 ml-7 hidden z-10">
+                <div class="h-3/5 row-span-2 flex justify-around items-center relative bg-white bg-opacity-90">
+                    <div id="profilePic" class="w-24 h-24 rounded-full border border-white bg-white">
+                        <img class="w-full h-full" src="/profiles/<%= model.profilepic %> ">  
+                    </div>
+
+                    <div id="userNamme">
+                        <p class="font-semibold text-lg text-gray-600"> <%= model.username %>  </p> 
+                    </div>           
+                </div>
+
+                <div id="viewProfile" class="h-1/5 flex justify-center items-center relative text-gray-700 bg-white hover:bg-gray-100">
+                    <a href="/biography/<%= userId %>"> <p class="font-thin text-lg">View Profile</p> </a>
+                </div>
+
+                <div id="logOut" class="h-1/5 flex justify-center items-center relative text-gray-700 bg-white hover:bg-gray-100">
+                    <a href="/logout"> <p class="font-thin text-lg">Log Out</p> </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="main" class="w-11/12 h-screen relative mx-auto flex justify-center items-center">
+
+            <div id="formContainer" class="w-3/4 h-5/6 relative flex justify-center rounded-lg bg-white hover:shadow-xl">
+            
+                <div class="w-11/12 h-full relative mx-auto mt-5">
+                    <div class="w-full h-10 flex justify-center items-center">
+                        <p class="text-4xl font-extralight text-center">Edit Education:</p>
+                    </div>
+
+                    <form action="/edit/education/<%= userId %>" method="POST">    
+
+                        <div id="educationWrapper" class=" grid grid-rows-5">
+
+                            <div class="mt-1">
+                                <label for="newprimaryschool" class="text-base text-gray-500 ml-5">Primary School</label> 
+                                <input type="text" name="newprimaryschool" value=" <%= model.primaryschool %>  " class="w-11/12 h-8 mt-3 ml-5 border border-gray-400 rounded-lg focus:outline-none">
+                            </div>
+
+                            <div class="mt-1">
+                                <label for="newmiddleschool" class="text-base text-gray-500 ml-5">Middle School (Junior High School)</label> 
+                                <input type="text" name="newmiddleschool" value=" <%= model.middleschool %>  " class="w-11/12 h-8 mt-3 ml-5 border border-gray-400 rounded-lg focus:outline-none">
+                            </div>
+
+                            <div class="mt-1 flex justify-between items-center">
+                                <label for="newuniversity" class="text-base text-gray-500 ml-5 mt-5">University(College)</label> 
+                                <input type="text" name="newuniversity" value=" <%= model.university %>  " class="w-8/12 h-8 mt-3 ml-4 border border-gray-400 rounded-lg focus:outline-none">
+                                <p class="text-gray-600 mt-3 mr-10"></p>
+                            </div>
+
+                            <div class="mt-1 flex justify-between items-center">
+                                <label for="newdepartment" class="text-base text-gray-500 ml-5 mt-5">Department</label> 
+                                <input type="text" name="newdepartment" value=" <%= model.universitydepartment %>  " class="w-8/12 h-8 mt-3 ml-16 border border-gray-400 rounded-lg focus:outline-none">
+                                <p class="text-gray-600 mt-3 mr-10"></p>
+                            </div>
+                            
+                            <div class="mt-1 flex justify-between items-center">
+                                <label for="newdegree" class="text-base text-gray-500 ml-5 mt-5">Degree</label> 
+                                <input type="text" name="newdegree" value=" <%= model.degree %>  " class="w-8/12 h-8 mt-3 ml-24 border border-gray-400 rounded-lg focus:outline-none">
+                                <p class="text-gray-600 mt-3 mr-10"></p>
+                            </div>
+ 
+                        </div>
+                        
+                        <div class="mt-10">                           
+                            <input type="submit" value="Save & Next"  class="w-8/12 h-8  ml-16 bg-blue-900 rounded-2xl text-white hover:bg-blue-800 focus:outline-none">
+                            <a href="/dashboard/<%= userId %>"> <input type="button" value="Cancel"  class="w-1/6 h-9  bg-gray-200 rounded-2xl text-gray-800 hover:bg-gray-300">  </a>         
+                        </div>
+                
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+        
+    </div>
+</body>
+
+<script>
+    
+    const profilePic = document.getElementById("littleProfile");
+    const menu = document.getElementById("profileMenu");
+
+    profilePic.addEventListener('click', () => {
+        menu.style.display = "block"
+    });
+
+
+    window.addEventListener('mouseup',function(e){
+
+        if(e.target != menu && e.target.parentNode != menu){
+            menu.style.display = 'none';
+        }
+        
+    });
+    
+</script>
+    
+</html>

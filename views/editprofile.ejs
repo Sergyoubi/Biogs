@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+    
+    <div id="wrapper" class="box-border m-0 p-0 bg-yellow-400">
+
+        <div id="header" class="w-full h-14 flex justify-between bg-blue-900">
+            <div id="logo" class="w-1/4 h-full flex justify-center items-center">
+                <a href="/dashboard/<%= userId %>"> <p class="text-blue-900 bg-white p-1 rounded-lg text-3xl font-bold">Biogs</p> </a> 
+            </div>
+
+            <div id="menu-wrapper" class="w-48 h-full flex justify-center items-center">
+                <div id="littleProfile" class="w-12 h-12 rounded-full bg-white border border-blue-900 bg-cover bg-center cursor-pointer">
+                    <img class="w-full h-full" src="/profiles/<%= model.profilepic %> ">  
+                </div>
+            </div>
+
+            <div id="profileMenu" class="w-60 h-60 shadow-lg absolute cursor-pointer left-3/4 mt-14 ml-7 hidden z-10">
+                <div class="h-3/5 row-span-2 flex justify-around items-center relative bg-white bg-opacity-90">
+                    <div id="profilePic" class="w-24 h-24 rounded-full border border-white bg-white">
+                        <img class="w-full h-full" src="/profiles/<%= model.profilepic %> ">  
+                    </div>
+
+                    <div id="userNamme">
+                        <p class="font-semibold text-lg"> <%= model.username %>  </p> 
+                    </div>           
+                </div>
+
+                <div id="viewProfile" class="h-1/5 flex justify-center items-center relative text-gray-700 bg-white hover:bg-gray-100">
+                    <a href="/biography/<%= userId %>"> <p class="font-thin text-lg">View Profile</p> </a>
+                </div>
+
+                <div id="logOut" class="h-1/5 flex justify-center items-center relative text-gray-700 bg-white hover:bg-gray-100">
+                    <a href="/logout"> <p class="font-thin text-lg">Log Out</p> </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="main" class="w-11/12 h-screen relative mx-auto flex justify-center items-center">
+
+            <div id="formContainer" class="w-3/5 h-full relative flex justify-center bg-white shadow-2xl">
+
+                <div class="w-full flex justify-center items-center absolute mt-24">                   
+                    <% if (typeof errorMessage != 'undefined') { %>               
+                        
+                        <% errorMessage.forEach((error) => { %>
+                            <p class="text-sm font-extralight text-center"> <%= error.message%> </p>
+                        <% }) %>
+                        
+                    <% } %>
+                </div>
+    
+                <div class="w-10/12 h-5/6 relative mx-auto mt-5">
+                    <div class="w-full h-16 flex justify-center items-center">
+                        <p class="text-4xl font-extralight text-center">Edit Profile:</p>
+                    </div>
+        
+                    <form action="/edit/profile/<%= userId %>" method="POST">
+                        
+                        <div class="w-full mt-4 relative">
+                            <label for="fullname" class="text-base text-gray-500 ml-5">Fullname</label> 
+                            <input type="text" name="fullname" value=" <%= model.username %> " class="w-11/12 h-9 mt-2 ml-5 border border-gray-400 rounded-lg focus:outline-none">
+                        </div>
+        
+                        <div class="mt-4">
+                            <label for="currentjob" class="text-base text-gray-500 ml-5">Current Job</label> 
+                            <input type="text" name="currentjob" value=" <%= model.userjob %> " class="w-11/12 h-9 mt-2 ml-5 border border-gray-400 rounded-lg focus:outline-none">
+                        </div>
+        
+                        <div class="mt-4">
+                            <label for="industry" class="text-base text-gray-500 ml-5">Industrial Field</label> 
+                            <input type="text" name="industry" value=" <%= model.userindustry %> " class="w-11/12 h-9 mt-2 ml-5 border border-gray-400 rounded-lg focus:outline-none">
+                        </div>
+        
+                        <div class="mt-4">
+                            <label for="country" class="text-base text-gray-500 ml-5">Country</label> 
+                            <input type="text" name="country" value=" <%= model.usercountry %> " class="w-11/12 h-9 mt-2 ml-5 border border-gray-400 rounded-lg focus:outline-none">
+                        </div>
+        
+                        <div class="mt-4"> 
+                            <label for="country" class="text-base text-gray-500 ml-5">City</label> 
+                            <input type="text" name="city" value=" <%= model.usercity %> " class="w-11/12 h-9 mt-2 ml-5 border border-gray-400 rounded-lg focus:outline-none">
+                        </div>
+        
+                        <div class="mt-5 ml-20">  
+                            <input type="submit" value="Save & Next"  class="w-8/12 h-9  bg-blue-900 rounded-2xl text-white hover:bg-blue-800 focus:outline-none">   
+                            <a href="/dashboard/<%= userId %>"> <input type="button" value="Cancel"  class="w-1/6 h-9  bg-gray-200 rounded-2xl text-gray-800 hover:bg-gray-300">  </a>                  
+                        </div>
+                
+                    </form>
+                </div>
+        
+            </div>
+
+        </div>
+
+    </div>
+    
+</body>
+
+<script> 
+    
+    const profilePic = document.getElementById("littleProfile");
+    const menu = document.getElementById("profileMenu");
+
+    profilePic.addEventListener('click', () => {
+        menu.style.display = "block"
+    });
+
+
+    window.addEventListener('mouseup',function(e){
+
+        if(e.target != menu && e.target.parentNode != menu){
+            menu.style.display = 'none';
+        }
+        
+    });
+    
+</script>
+
+</html>

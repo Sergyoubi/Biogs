@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> <%= title%> </title>
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+
+  <div id="wrapper" class="box-border m-0 p-0">
+
+    <div id="header" class="w-full h-14 flex justify-between">
+      <div id="logo" class="w-1/4 h-full flex justify-start items-center">
+        <a href="/"> <p class="text-white p-1 bg-blue-900 rounded-lg ml-16 text-3xl font-bold">Biogs</p> </a>
+      </div>
+
+      <div id="menu-wrapper" class="w-96 h-full flex justify-around items-center">
+        <a href="/signup"> <p class="text-lg font-medium text-blue-500 rounded-lg hover:text-gray-600 hover:bg-gray-100 hover:px-3" >Join us</p> </a>
+        <a href="/login"> <p class="text-lg font-medium text-gray-600 px-3 bg-gray-100 rounded-lg hover:text-blue-500 hover:bg-gray-50" >Sign in</p> </a>
+      </div> 
+    </div>
+
+    <div id="main" class="w-screen h-96 flex justify-center items-center mt-20">
+      <div class="w-full h-3/6 flex justify-center items-center">
+        <div class="">
+          <p class="text-3xl font-black"> <span class="text-6xl">Error</span> <span class="text-6xl ">404!!</span> Page not found.</p>
+          <p class="text-blue-900 mt-5">The page you are trying to access does not exist or has been moved.
+          Try going back to our homepage.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

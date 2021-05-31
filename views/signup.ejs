@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <div id="main" class="w-screen h-screen bg-blue-50 flex justify-center items-center">
+        <div class="w-2/5 h-full bg-white">
+            <div class=" w-full h-1/6 flex items-center justify-center">
+                <a href="/"> <p class="text-blue-900 text-3xl font-bold hover:underline">Biogs</p> </a>
+            </div>
+
+            <div id="error-message-container" class="flex justify-center">
+                <ul>
+
+                    <% if (typeof errors != 'undefined') { %>
+                        <% errors.forEach((error) => { %>
+                            <li> <%= error.message %> </li>
+                        <% }) %>
+                    <% } %>
+        
+                </ul>
+            </div>
+
+            <div id="formContainer" class="w-full h-4/5">
+                <form action="/signup" method="POST">
+                    <div class="w-full flex items-center justify-center">
+                        <input type="email" name="email" placeholder="Email" required class="w-5/6 h-12 border border-blue-900 rounded-2xl my-4 focus:outline-none text-center">
+                    </div>
+
+                    <div class="w-full flex items-center justify-center">
+                        <input type="password" name="password" placeholder="Password" required class="w-5/6 h-12 border border-blue-900 rounded-2xl my-4 focus:outline-none text-center">
+                    </div>
+
+                    <div class="w-full flex items-center justify-center">
+                        <input type="password" name="password2" placeholder="Confirm Password" required class="w-5/6 h-12 border border-blue-900 rounded-2xl my-4 focus:outline-none text-center">
+                    </div>
+
+                    <div class="w-full flex items-center justify-center">
+                        <input type="submit" value="Agree & Register" class="w-5/6 h-12  border-2 border-blue-900 bg-blue-900 rounded-3xl my-4 text-white text-lg font-medium hover:bg-blue-800">                      
+                    </div>
+                </form>
+
+                <div class="w-full h-1/4 flex items-center justify-center">
+                    <p class="text-gray-500 text-center">By Clicking <span class="font-bold">Agree & Register</span>, you agree to our <span class="text-blue-600 font-lg">User Agreement</span></p>
+                </div>
+
+                <div class="w-full h-1/5 flex items-start justify-center">
+                    <a href="/login"> <p class="text-gray-500 text-center">Already have an account? <span class="font-bold text-blue-600">Sign in here</span></p> </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

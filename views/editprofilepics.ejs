@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile Picture</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+
+    <div id="wrapper" class="box-border m-0 p-0 bg-gray-50">
+
+        <div id="header" class="w-full h-14 flex justify-between bg-blue-900">
+            <div id="logo" class="w-1/5 h-full flex justify-center items-center">
+                <a href="/dashboard/<%= userId %>"> <p class="text-blue-900 bg-white p-1 rounded-lg text-3xl font-bold">Biogs</p> </a>
+            </div>
+
+            <div id="menu-wrapper" class="w-48 h-full flex justify-center items-center">
+                <div id="littleProfile" class="w-12 h-12 rounded-full bg-blue-900 border border-blue-900 cursor-pointer"> 
+                    <img class="w-full h-full" src="/profiles/<%= model.profilepic %> "> 
+                </div>
+            </div>
+
+            <div id="profileMenu" class="w-60 h-60 shadow-lg absolute cursor-pointer left-3/4 mt-14 ml-7 hidden z-10">
+                <div class="h-3/5 row-span-2 flex justify-around items-center relative bg-white bg-opacity-90">
+                    <div id="profilePic" class="w-24 h-24 rounded-full border border-white bg-cover bg-center">
+                        <img class="w-full h-full" src="/profiles/<%= model.profilepic %>">
+                    </div>
+
+                    <div id="userNamme">
+                        <p class="font-semibold text-lg"> <%= model.username %> </p> 
+                    </div>           
+                </div>
+ 
+                <div id="viewProfile" class="h-1/5 flex justify-center items-center relative text-gray-700 bg-white hover:bg-gray-100">
+                    <a href="/biography/ <%= userId %>"> <p class="font-thin text-lg">My Profile</p> </a>
+                </div>
+
+                <div id="logOut" class="h-1/5 flex justify-center items-center relative text-gray-700 bg-white hover:bg-gray-100">
+                    <a href="/"> <p class="font-thin text-lg">Log Out</p> </a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div id="main" class="w-11/12 h-screen relative mx-auto flex justify-center items-center">
+            <div id="formContainer" class="w-3/5 h-4/5 relative grid grid-rows-2 bg-white shadow-2xl">
+
+                <div class="flex justify-center items-center bg-blue-100">
+                    <div class="w-60 h-60 bg-blue-400 rounded-full">
+                        <img id="pics" class="w-full h-full" src="/profiles/<%= model.profilepic %>">
+                    </div>
+                </div>
+
+                <div class="flex justify-center"> 
+
+                    <div class="w-2/4 h-1/5">
+                        <form action="/edit/profile/picture/<%= userId %>" method="POST" enctype="multipart/form-data">
+
+                            <div class="absolute ml-5 opacity-0">
+                                <input type="file" name="profilepic" id="profilepic" onchange="previewImage()">
+                            </div>
+
+                            <div class="ml-14 mt-4">
+                                <label for="profile" class="text-base text-white p-3 px-20 bg-blue-400 rounded-2xl">Select Picture</label>
+                            </div>  
+
+                            <div class="ml-24">
+                                <input type="submit" value="Save" class="w-2/5 h-9 mt-10 bg-blue-900 rounded-2xl text-white hover:bg-blue-800 focus:outline-none">
+                                <a href="/dashboard/<%= userId %>"> <input type="button" value="Cancel"  class="w-1/5 h-9 bg-gray-200 ml-3 rounded-lg text-gray-800 hover:bg-gray-300">  </a>                  
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+<script>
+
+    const profilePic = document.getElementById("littleProfile");
+    const menu = document.getElementById("profileMenu");
+    
+
+    profilePic.addEventListener('click', () => {
+        menu.style.display = "block"
+    });
+
+    window.addEventListener('mouseup',function(e){
+
+        if(e.target != menu && e.target.parentNode != menu){
+            menu.style.display = 'none';
+        }
+        
+    });
+
+    function previewImage() {
+        const file = document.getElementById("profilepic").files;
+
+        if (file.length > 0) {
+
+            const fileReader = new FileReader ();
+
+            fileReader.onload = (e) => {
+                document.getElementById("pics").setAttribute("src", e.target.result);
+            }
+
+            fileReader.readAsDataURL(file[0]);
+
+        }
+    }
+
+
+</script>
+</html>
