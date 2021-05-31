@@ -24,8 +24,8 @@ Biography Page
 Edit Profile Pic page
 ![Screen Shot 2021-05-31 at 15 53 20-min](https://user-images.githubusercontent.com/75132670/120213686-289aec00-c23c-11eb-9129-9b70793072a3.png)
 
-![Screen Shot 2021-05-31 at 15 55 45-min](https://user-images.githubusercontent.com/75132670/120213845-60099880-c23c-11eb-9bb5-6845d4e71bae.png)
-![Screen Shot 2021-05-31 at 15 57 32-min](https://user-images.githubusercontent.com/75132670/120213848-61d35c00-c23c-11eb-8157-6420c3ad815c.png)
 
 Edit Profile, Education and Experience Pages
+![Screen Shot 2021-05-31 at 15 55 45-min](https://user-images.githubusercontent.com/75132670/120213845-60099880-c23c-11eb-9bb5-6845d4e71bae.png)
+![Screen Shot 2021-05-31 at 15 57 32-min](https://user-images.githubusercontent.com/75132670/120213848-61d35c00-c23c-11eb-8157-6420c3ad815c.png)
 ![Screen Shot 2021-05-31 at 15 53 56-min](https://user-images.githubusercontent.com/75132670/120213814-55e79a00-c23c-11eb-8177-148a92ad7520.png)
