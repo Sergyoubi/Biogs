@@ -1,5 +1,5 @@
 # Biogs
-Biogs is a Social media App made with pure HTML, TailwindCSS, backed with Node.JS/Express.JS and PostgreSQL.
+Biogs is a Social media App made with pure HTML, TailwindCSS, backed with Node.JS/Express.JS and PostgreSQL. User authentication is managed with Passport.js.
 
 
 ![Screen Shot 2021-06-03 at 19 27 36-min](https://user-images.githubusercontent.com/75132670/120679709-289c2580-c4a2-11eb-81bd-3bb942d81dd8.png)
